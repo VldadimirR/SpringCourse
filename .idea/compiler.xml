@@ -9,9 +9,5 @@
         <module name="MavenQuickStart" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="GradleProject.main" target="11" />
-      <module name="GradleProject.test" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
