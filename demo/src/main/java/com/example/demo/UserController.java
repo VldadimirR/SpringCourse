@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,22 +19,31 @@ public class UserController {
 
     private final RegistrationService registrationService;
 
+    private final UserService userService;
+
     @Autowired
-    public UserController(DataProcessingService dataProcessingService, RegistrationService registrationService) {
+    public UserController(DataProcessingService dataProcessingService, RegistrationService registrationService, UserService userService) {
         this.dataProcessingService = dataProcessingService;
         this.registrationService = registrationService;
+        this.userService = userService;
     }
 
     @RequestMapping(
             method = RequestMethod.GET)
-    public ResponseEntity<List<User>> getAllUser(){
-        return new ResponseEntity<>(dataProcessingService.getAllUser(), HttpStatus.OK);
+    public String getAllUser(Model model){
+        List<User> users = userService.getAllUser();
+
+        model.addAttribute("users", users);
+        return "users";
     }
 
     @RequestMapping(
+            value = "/create",
             method = RequestMethod.POST)
-    public ResponseEntity<User> createUser(@RequestParam String name, @RequestParam int age, @RequestParam String email) {
-        return new ResponseEntity<>(registrationService.registrationUser(name, age, email), HttpStatus.CREATED);
+    public String createUser(@RequestParam String name, @RequestParam int age, @RequestParam String email, Model model) {
+         User user = registrationService.registrationUser(name, age, email);
+        model.addAttribute("user", user);
+        return "redirect:/user";
     }
 
 }

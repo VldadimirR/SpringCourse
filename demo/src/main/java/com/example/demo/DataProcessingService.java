@@ -23,10 +23,6 @@ public class DataProcessingService {
         userRepository.save(user);
     }
 
-    public List<User> getAllUser(){
-        return userRepository.findAll();
-    }
-
     public List<User> sortUsersByAge(List<User> users) {
         return users.stream()
                 .sorted(Comparator.comparing(User::getAge))
