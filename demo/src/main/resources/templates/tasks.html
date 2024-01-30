@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks List</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Tasks List: <span th:text="${status}"></span></h2>
+
+    <div th:if="${successMessage}">
+        <p th:text="${successMessage}" class="success-message"></p>
+    </div>
+    <div th:if="${changeMessage}">
+        <p th:text="${changeMessage}" class="change-message"></p>
+    </div>
+    <div th:if="${deleteMessage}">
+        <p th:text="${deleteMessage}" class="delete-message"></p>
+    </div>
+
+
+    <form th:action="@{/tasks/addTasks}" method="post">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+        <input type="submit" value="Create Task">
+    </form>
+
+    <form th:action="@{/tasks}" method="get">
+        <!-- Селектор для выбора статуса задачи -->
+        <select name="status" required>
+            <option value="ALL">All</option>
+            <option value="ACTIVE">Active</option>
+            <option value="INACTIVE">Inactive</option>
+            <option value="COMPLETED">Completed</option>
+        </select>
+        <input type="submit" value="Filter by Status">
+    </form>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Creation Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}"> ID</td>
+            <td th:text="${task.description}">Description</td>
+            <td th:text="${task.status}">Status</td>
+            <td th:text="${task.formattedCreationDate}">Creation Date</td>
+            <td>
+                <div class="actionForm">
+                    <form th:action="@{/tasks/changeStatus/{id}(id=${task.id})}" method="post" class="changeForm">
+                        <select name="newStatus" required>
+                            <option value="ACTIVE">Active</option>
+                            <option value="INACTIVE">Inactive</option>
+                            <option value="COMPLETED">Completed</option>
+                        </select>
+                        <input type="submit" value="Change Status">
+                    </form>
+
+                    <form th:action="@{/tasks/delete/{id}(id=${task.id})}" method="post" class="deleteForm">
+                        <input type="submit" value="Delete">
+                    </form>
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+<script th:inline="javascript">
+    /* Функция для скрытия сообщения через 5 секунд */
+    function hideMessage(messageElement) {
+        if (messageElement) {
+            setTimeout(function() {
+                messageElement.style.display = 'none';
+            }, 5000);
+        }
+    }
+    /* Скрываем сообщение об успешном удалении через 5 секунд */
+    hideMessage(document.querySelector('.success-message'));
+
+    hideMessage(document.querySelector('.change-message'));
+
+    hideMessage(document.querySelector('.delete-message'));
+</script>
+
+
+
+</html>

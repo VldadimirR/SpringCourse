@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f0f0f0;
 }
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -11,48 +12,139 @@ body {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
+
 th, td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+
 th {
-    background-color: #1e7120;
+    background-color: #9657ad;
     color: white;
 }
-tr:hover {background-color: #f5f5f5;}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
 form {
     margin-bottom: 20px;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
+
 form label {
     display: block;
     margin-bottom: 5px;
 }
+
 form input[type="text"],
 form input[type="number"],
 form input[type="email"] {
-    width: 100%;
+    flex: 1;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+
 form input[type="submit"] {
+    margin-left: 10px;
     padding: 10px 20px;
-    background-color: #1e7120;
+    background-color: #9657ad;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 form input[type="submit"]:hover {
-    background-color: #185a1a;
+    background-color: #9657ad;
 }
+
+.actionForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.actionForm .changeForm input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #9657ad !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actionForm .changeForm input[type="submit"]:hover {
+    background-color: #7b4693 !important;
+}
+
+/* Стили для кнопки "Удалить" */
+.actionForm .deleteForm input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #d9534f !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actionForm .deleteForm input[type="submit"]:hover {
+    background-color: #c9302c !important;
+}
+
+.success-message {
+    color: #4CAF50;
+    background-color: #dff0d8;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+}
+
+.change-message {
+    color: #9e9e00;
+    background-color: #fff3cd;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+}
+
+.delete-message {
+    color: #d9534f;
+    background-color: #f2dede;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ebccd1;
+    border-radius: 5px;
+}
+
+select {
+    padding: 10px;
+    max-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+select:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+
+
+
