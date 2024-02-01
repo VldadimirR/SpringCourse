@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Workers Page</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Workers</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="worker : ${workers}" th:onclick="'navigateToWorkerDetails(' + ${worker.id} + ')'" style="cursor: pointer;">
+            <td th:text="${worker.id}"></td>
+            <td th:text="${worker.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Add a New Worker</h3>
+    <form class="form" th:action="@{/workers/addWorker}" method="post">
+        <label>Name: <input type="text" name="name" required/></label>
+        <input type="submit" value="Add Worker" >
+    </form>
+
+    <a href="/tasks">View Tasks</a>
+</div>
+
+<script type="text/javascript">
+    // Function to navigate to the worker details page
+    function navigateToWorkerDetails(workerId) {
+        window.location.href = '/workers/' + workerId;
+    }
+</script>
+
+</body>
+</html>

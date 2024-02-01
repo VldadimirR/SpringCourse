@@ -14,6 +14,10 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    public Task getTaskByIDforWorkers(int id) {
+        return taskRepository.findByIdWithWorkers(id);
+    }
+
     public Task addTask(Task task){
         task.setStatus(Status.ACTIVE);
         return taskRepository.save(task);
@@ -43,4 +47,19 @@ public class TaskService {
         taskRepository.deleteById(taskId);
     }
 
+    public Task getTaskByID(int id) {
+        return  taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+    }
+
+    public void updateTask(int id, Task updatedTask) {
+        Optional<Task> existingTaskOptional = taskRepository.findById(id);
+
+        if (existingTaskOptional.isPresent()) {
+            Task existingTask = existingTaskOptional.get();
+            existingTask.setDescription(updatedTask.getDescription());
+            existingTask.setStatus(updatedTask.getStatus());
+
+            taskRepository.save(existingTask);
+        }
+    }
 }

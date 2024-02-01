@@ -1,6 +1,5 @@
 package com.example.demo;
 
-
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.NonNull;
@@ -9,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -29,7 +29,18 @@ public class Task {
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 
+    @OneToMany(mappedBy = "owner")
+    private List<Worker> workers;
+
     public Task() {
+    }
+
+    public List<Worker> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(List<Worker> workers) {
+        this.workers = workers;
     }
 
     public Task(@NonNull String description, Status status) {
@@ -82,14 +93,13 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return id == task.id && Objects.equals(description, task.description) && status == task.status && Objects.equals(creationDate, task.creationDate);
+        return id == task.id && Objects.equals(description, task.description) && status == task.status && Objects.equals(creationDate, task.creationDate) && Objects.equals(workers, task.workers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, status, creationDate);
+        return Objects.hash(id, description, status, creationDate, workers);
     }
-
 
     @Override
     public String toString() {
@@ -98,6 +108,7 @@ public class Task {
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", creationDate=" + creationDate +
+                ", workers=" + workers +
                 '}';
     }
 }

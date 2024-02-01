@@ -15,10 +15,12 @@ public class TaskController {
 
     private final TaskService taskService;
 
+
     @Autowired
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
+
 
     @GetMapping()
     public String getTasks(@RequestParam(name = "status", defaultValue = "ALL")
@@ -37,6 +39,14 @@ public class TaskController {
         return "tasks";
     }
 
+    @GetMapping("/{id}")
+    public String getTask(@PathVariable int id, Model model){
+        Task task = taskService.getTaskByIDforWorkers(id);
+        model.addAttribute("task", task);
+        model.addAttribute("workers", task.getWorkers());
+
+        return "task";
+    }
 
     @PostMapping("/addTasks")
     public String addTask(@ModelAttribute Task task,
@@ -60,6 +70,13 @@ public class TaskController {
         }
         return "redirect:/tasks";
     }
+
+    @PutMapping("/{id}")
+    public String updateTask(@PathVariable int id, Task task){
+        taskService.updateTask(id, task);
+        return "redirect:/task" + id;
+    }
+
 
     @PostMapping("/delete/{id}")
     public String deleteTask(@PathVariable int id, RedirectAttributes redirectAttributes){

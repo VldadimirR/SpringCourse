@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Task Details</title>
+</head>
+<body>
+<div class="container">
+    <h1>Task Details</h1>
+
+    <div th:if="${task != null}">
+        <p><strong>Task ID:</strong> <span th:text="${task.id}"></span></p>
+        <p><strong>Task Description: </strong><span th:text="${task.description}"></span></p>
+        <p><strong>Task Status: </strong><span th:text="${task.status}"></span></p>
+        <p><strong>Creation Date Task: </strong><span th:text="${task.formattedCreationDate}"></span></p>
+
+        <h3>Workers on this Task:</h3>
+        <ul class="worker-list">
+            <li th:each="worker : ${workers}" th:onclick="'navigateToWorkerDetails(' + ${worker.id} + ')'" style="cursor: pointer;">
+                <span th:text="${worker.name}"></span>
+            </li>
+            <li th:if="${#lists.isEmpty(workers)}">No workers assigned to this task.</li>
+        </ul>
+    </div>
+
+    <a href="/tasks">Back to Task List</a>
+
+</div>
+
+<script type="text/javascript">
+    function navigateToWorkerDetails(workerId) {
+        window.location.href = '/workers/' + workerId;
+    }
+</script>
+
+</body>
+</html>

@@ -40,12 +40,16 @@ form {
     border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
-    align-items: center;
+    align-items: baseline
 }
 
 form label {
     display: block;
     margin-bottom: 5px;
+}
+
+label {
+    margin-right: 5px;
 }
 
 form input[type="text"],
@@ -72,6 +76,7 @@ form input[type="submit"]:hover {
     background-color: #9657ad;
 }
 
+
 .actionForm {
     display: flex;
     justify-content: space-between;
@@ -87,6 +92,10 @@ form input[type="submit"]:hover {
 }
 
 .actionForm .changeForm input[type="submit"]:hover {
+    background-color: #7b4693 !important;
+}
+
+input[type="submit"]:hover {
     background-color: #7b4693 !important;
 }
 
@@ -144,6 +153,40 @@ select:focus {
     border-color: #66afe9;
     box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
 }
+
+a {
+    text-decoration: none;
+    background-color: #9657ad;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+a:hover {
+    background-color: #7b4693;
+}
+
+.worker-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы вокруг списка */
+}
+
+.worker-list li {
+    margin-bottom: 10px; /* Расстояние между элементами списка */
+    padding: 8px; /* Внутренний отступ вокруг текста */
+    border: 1px solid #ddd; /* Граница между элементами списка */
+    border-radius: 5px; /* Закругляем углы границы */
+}
+
+.worker-list li span {
+    font-weight: bold; /* Жирный шрифт для текста внутри элемента списка */
+    color: #333; /* Цвет текста */
+}
+
+
+
 
 
 

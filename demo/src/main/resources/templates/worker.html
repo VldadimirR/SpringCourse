@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Details</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Worker Details</h1>
+
+    <div th:if="${worker != null}">
+        <p><strong>Worker ID:</strong> <span th:text="${worker.id}"></span></p>
+        <p><strong>Worker Name:</strong> <span th:text="${worker.name}"></span></p>
+
+        <div th:if="${taskOwner != null}">
+            <p><strong>Task Description:</strong> <span th:text="${taskOwner.description}"></span></p>
+        </div>
+
+        <div th:unless="${taskOwner != null}">
+            <p><u>The worker has not started any task yet.</u></p>
+        </div>
+
+    </div>
+
+    <h2>Assign Task</h2>
+    <form class="form" th:action="@{/workers/{id}/assign(id=${worker.id})}" th:object="${task}" th:method="POST">
+        <label for="taskId">Select Task:</label>
+        <select id="taskId" name="taskId" th:field="*{id}">
+            <option th:each="task : ${tasks}" th:value="${task.id}" th:text="${task.description}"></option>
+        </select>
+        <input type="submit" class="submitButton" value="Assign Task">
+    </form>
+
+    <h2>Release Worker</h2>
+    <form class="form" th:action="@{/workers/{id}/release(id=${worker.id})}" th:method="POST">
+        <input type="submit" class="submitButton" value="Release Worker">
+    </form>
+
+    <a href="/workers">Back to Workers List</a>
+</div>
+
+</body>
+</html>

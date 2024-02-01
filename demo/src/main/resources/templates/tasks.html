@@ -23,20 +23,20 @@
     <form th:action="@{/tasks/addTasks}" method="post">
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" required>
-        <input type="submit" value="Create Task">
+        <input type="submit" value="Create ">
     </form>
 
     <form th:action="@{/tasks}" method="get">
-        <!-- Селектор для выбора статуса задачи -->
         <select name="status" required>
             <option value="ALL">All</option>
             <option value="ACTIVE">Active</option>
             <option value="INACTIVE">Inactive</option>
             <option value="COMPLETED">Completed</option>
         </select>
-        <input type="submit" value="Filter by Status">
+        <input type="submit" value="Filter ">
     </form>
 
+    <a href="/workers">Back to Workers List</a>
 
     <table>
         <thead>
@@ -49,11 +49,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="task : ${tasks}">
-            <td th:text="${task.id}"> ID</td>
-            <td th:text="${task.description}">Description</td>
-            <td th:text="${task.status}">Status</td>
-            <td th:text="${task.formattedCreationDate}">Creation Date</td>
+        <tr th:each="task : ${tasks}" >
+            <td th:onclick="'navigateToTaskDetails(' + ${task.id} + ')'" style="cursor: pointer;"
+                th:text="${task.id}"> ID</td>
+            <td th:onclick="'navigateToTaskDetails(' + ${task.id} + ')'" style="cursor: pointer;"
+                th:text="${task.description}">Description</td>
+            <td th:onclick="'navigateToTaskDetails(' + ${task.id} + ')'" style="cursor: pointer;"
+                th:text="${task.status}">com.example.demo.Status</td>
+            <td th:onclick="'navigateToTaskDetails(' + ${task.id} + ')'" style="cursor: pointer;"
+                th:text="${task.formattedCreationDate}">Creation Date</td>
             <td>
                 <div class="actionForm">
                     <form th:action="@{/tasks/changeStatus/{id}(id=${task.id})}" method="post" class="changeForm">
@@ -62,7 +66,7 @@
                             <option value="INACTIVE">Inactive</option>
                             <option value="COMPLETED">Completed</option>
                         </select>
-                        <input type="submit" value="Change Status">
+                        <input type="submit" value="Change">
                     </form>
 
                     <form th:action="@{/tasks/delete/{id}(id=${task.id})}" method="post" class="deleteForm">
@@ -92,6 +96,10 @@
     hideMessage(document.querySelector('.change-message'));
 
     hideMessage(document.querySelector('.delete-message'));
+
+    function navigateToTaskDetails(taskId) {
+        window.location.href = '/tasks/' + taskId;
+    }
 </script>
 
 
