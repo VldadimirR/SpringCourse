@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.work;
 
+import com.example.demo.task.Task;
 import jakarta.persistence.*;
 
 import java.util.Objects;

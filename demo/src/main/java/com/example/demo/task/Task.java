@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.task;
 
+import com.example.demo.work.Worker;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.NonNull;
