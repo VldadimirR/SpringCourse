@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Tasks List</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <div class="container">
@@ -82,7 +82,7 @@
 
 </body>
 <script th:inline="javascript">
-    /* Функция для скрытия сообщения через 5 секунд */
+
     function hideMessage(messageElement) {
         if (messageElement) {
             setTimeout(function() {
@@ -90,7 +90,7 @@
             }, 5000);
         }
     }
-    /* Скрываем сообщение об успешном удалении через 5 секунд */
+
     hideMessage(document.querySelector('.success-message'));
 
     hideMessage(document.querySelector('.change-message'));

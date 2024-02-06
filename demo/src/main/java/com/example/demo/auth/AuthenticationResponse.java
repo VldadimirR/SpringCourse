@@ -1,8 +1,14 @@
 package com.example.demo.auth;
 
-import com.example.demo.customer.CustomerDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record AuthenticationResponse (
-        String token,
-        CustomerDTO customerDTO){
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class AuthenticationResponse {
+    private String token;
 }

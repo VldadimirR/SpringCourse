@@ -1,42 +1,50 @@
 package com.example.demo.auth;
 
-
-import com.example.demo.customer.Customer;
-import com.example.demo.customer.CustomerDTO;
-import com.example.demo.customer.CustomerDTOMapper;
-import com.example.demo.jwt.JWTUtil;
+import com.example.demo.jwt.JwtService;
+import com.example.demo.user.Role;
+import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 @Service
+@RequiredArgsConstructor
 public class AuthenticationService {
-
+    private final UserRepository repository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-    private final CustomerDTOMapper customerDTOMapper;
-    private final JWTUtil jwtUtil;
 
-    public AuthenticationService(AuthenticationManager authenticationManager,
-                                 CustomerDTOMapper customerDTOMapper,
-                                 JWTUtil jwtUtil) {
-        this.authenticationManager = authenticationManager;
-        this.customerDTOMapper = customerDTOMapper;
-        this.jwtUtil = jwtUtil;
+    public AuthenticationResponse register(RegisterRequest request) {
+        var user = User.builder()
+                .firstname(request.getFirstname())
+                .lastname(request.getLastname())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.ROLE_USER)
+                .build();
+        repository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
 
-    public AuthenticationResponse login(AuthenticationRequest request) {
-        Authentication authentication = authenticationManager.authenticate(
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.username(),
-                        request.password()
+                        request.getEmail(),
+                        request.getPassword()
                 )
         );
-        Customer principal = (Customer) authentication.getPrincipal();
-        CustomerDTO customerDTO = customerDTOMapper.apply(principal);
-        String token = jwtUtil.issueToken(customerDTO.username(), customerDTO.roles());
-        return new AuthenticationResponse(token, customerDTO);
+        var user = repository.findByEmail(request.getEmail())
+                .orElseThrow();
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
-
 }
