@@ -1,0 +1,83 @@
+2024-02-07 19:46:20.332 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 19.0.2 with PID 9240 (C:\Users\VladimirR\Desktop\Programming\Spring\demo\target\classes started by VladimirR in C:\Users\VladimirR\Desktop\Programming\Spring)
+2024-02-07 19:46:20.333 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-02-07 19:46:20.366 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-07 19:46:20.366 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-07 19:46:20.789 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 19:46:20.838 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+2024-02-07 19:46:21.393 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-02-07 19:46:21.400 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-02-07 19:46:21.401 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-02-07 19:46:21.401 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2024-02-07 19:46:21.441 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-02-07 19:46:21.442 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1075 ms
+2024-02-07 19:46:21.550 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-07 19:46:21.585 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.6.Final
+2024-02-07 19:46:21.702 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2024-02-07 19:46:21.777 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-02-07 19:46:21.899 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@38b595a0
+2024-02-07 19:46:21.900 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-02-07 19:46:21.926 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-07 19:46:22.511 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-02-07 19:46:22.516 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-07 19:46:23.015 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-07 19:46:23.213 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1eed398a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@726715ef, org.springframework.security.web.context.SecurityContextHolderFilter@65ee7fc6, org.springframework.security.web.header.HeaderWriterFilter@36596a9e, org.springframework.security.web.authentication.logout.LogoutFilter@5fa644a7, com.example.demo.jwt.JwtAuthenticationFilter@10f01afc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@41932013, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c73d4a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f1549ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5901be12, org.springframework.security.web.session.SessionManagementFilter@30b83560, org.springframework.security.web.access.ExceptionTranslationFilter@7a4764f6, org.springframework.security.web.access.intercept.AuthorizationFilter@524f2059]
+2024-02-07 19:46:23.401 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-02-07 19:46:23.409 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-02-07 19:46:23.423 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-02-07 19:46:23.430 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.387 seconds (process running for 3.766)
+2024-02-07 19:48:37.270 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-07 19:48:37.270 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-02-07 19:48:37.271 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-02-07 19:49:18.988 [http-nio-8080-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.004 [http-nio-8080-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.017 [http-nio-8080-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.029 [http-nio-8080-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.040 [http-nio-8080-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.052 [http-nio-8080-exec-9] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.062 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.073 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.083 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:49:19.094 [http-nio-8080-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-02-07 19:54:20.960 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-07 19:54:20.963 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-02-07 19:54:20.967 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-02-07 19:54:24.165 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 19.0.2 with PID 8636 (C:\Users\VladimirR\Desktop\Programming\Spring\demo\target\classes started by VladimirR in C:\Users\VladimirR\Desktop\Programming\Spring)
+2024-02-07 19:54:24.168 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-02-07 19:54:24.209 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-07 19:54:24.209 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-07 19:54:24.700 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 19:54:24.749 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+2024-02-07 19:54:25.283 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-02-07 19:54:25.290 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-02-07 19:54:25.291 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-02-07 19:54:25.291 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2024-02-07 19:54:25.332 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-02-07 19:54:25.333 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1123 ms
+2024-02-07 19:54:25.448 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-07 19:54:25.489 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.6.Final
+2024-02-07 19:54:25.608 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2024-02-07 19:54:25.683 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-02-07 19:54:25.818 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d044d26
+2024-02-07 19:54:25.819 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-02-07 19:54:25.840 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-02-07 19:54:26.414 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-02-07 19:54:26.420 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-07 19:54:26.956 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-07 19:54:27.152 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@55269aee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d799d32, org.springframework.security.web.context.SecurityContextHolderFilter@27483eea, org.springframework.security.web.header.HeaderWriterFilter@2c786f5c, org.springframework.security.web.authentication.logout.LogoutFilter@3556ee84, com.example.demo.jwt.JwtAuthenticationFilter@6f3370fa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@422839cb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e27b10a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@900d055, org.springframework.security.web.session.SessionManagementFilter@38984bb4, org.springframework.security.web.access.ExceptionTranslationFilter@69d8df0b, org.springframework.security.web.access.intercept.AuthorizationFilter@2b33efdf]
+2024-02-07 19:54:27.341 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-02-07 19:54:27.350 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-02-07 19:54:27.364 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-02-07 19:54:27.372 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.49 seconds (process running for 3.857)
+2024-02-07 19:54:31.655 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-07 19:54:31.655 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-02-07 19:54:31.656 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-02-07 19:54:51.798 [http-nio-8080-exec-3] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'findAll' in class 'WorkerService' called with arguments: []
+2024-02-07 19:55:00.922 [http-nio-8080-exec-4] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'getAllTask' in class 'TaskService' called with arguments: []
+2024-02-07 19:59:49.634 [http-nio-8080-exec-10] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'save' in class 'WorkerService' called with arguments: [Worker{id=4, name='newWr', owner=null}]
+2024-02-07 19:59:49.652 [http-nio-8080-exec-2] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'findAll' in class 'WorkerService' called with arguments: []
+2024-02-07 20:02:16.431 [http-nio-8080-exec-4] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'getAllTask' in class 'TaskService' called with arguments: []
+2024-02-07 20:05:03.220 [http-nio-8080-exec-7] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'deleteTask' in class 'TaskService' called with arguments: [1]
+2024-02-07 20:05:03.239 [http-nio-8080-exec-8] INFO  c.e.d.aspect.UserActionLoggerAspect - User 'Admin.Ad@example.com' action: Method 'getAllTask' in class 'TaskService' called with arguments: []
+2024-02-07 20:05:26.623 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-07 20:05:26.625 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-02-07 20:05:26.627 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

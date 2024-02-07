@@ -1,5 +1,6 @@
 package com.example.demo.task;
 
+import com.example.demo.aspect.TrackUserAction;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
+    @TrackUserAction
     public List<Task> getAllTask(){
         return taskRepository.findAll();
     }
@@ -31,6 +33,8 @@ public class TaskService {
         return taskRepository.findByStatus(status);
     }
 
+
+    @TrackUserAction
     public Optional<Task> changeStatus(int taskID, Status newStatus){
         Optional<Task> optionalTask = taskRepository.findById(taskID);
 
@@ -43,6 +47,7 @@ public class TaskService {
         }
     }
 
+    @TrackUserAction
     public void deleteTask(int taskId){
         taskRepository.deleteById(taskId);
     }
@@ -51,6 +56,7 @@ public class TaskService {
         return  taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
+    @TrackUserAction
     public void updateTask(int id, Task updatedTask) {
         Optional<Task> existingTaskOptional = taskRepository.findById(id);
 

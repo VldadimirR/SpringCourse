@@ -1,5 +1,6 @@
 package com.example.demo.work;
 
+import com.example.demo.aspect.TrackUserAction;
 import com.example.demo.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class WorkerService {
         this.workerRepository = workerRepository;
     }
 
+    @TrackUserAction
     public List<Worker> findAll() {
         return workerRepository.findAll();
     }
@@ -25,16 +27,19 @@ public class WorkerService {
                 .orElseThrow(() -> new RuntimeException("Worker not found"));
     }
 
+    @TrackUserAction
     public Worker save(Worker reader) {
         return workerRepository.save(reader);
     }
 
+    @TrackUserAction
     public void assign(int id, Task selectTask) {
         Worker worker = findById(id);
         worker.setOwner(selectTask);
         workerRepository.save(worker);
     }
 
+    @TrackUserAction
     public void release(int id) {
         Worker worker = findById(id);
         worker.setOwner(null);
