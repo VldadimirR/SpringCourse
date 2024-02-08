@@ -22,6 +22,8 @@ public class WorkerService {
         return workerRepository.findAll();
     }
 
+
+    @TrackUserAction
     public Worker findById(int id) {
         return workerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Worker not found"));

@@ -19,6 +19,7 @@ public class TaskService {
         return taskRepository.findByIdWithWorkers(id);
     }
 
+    @TrackUserAction
     public Task addTask(Task task){
         task.setStatus(Status.ACTIVE);
         return taskRepository.save(task);
@@ -29,6 +30,7 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
+    @TrackUserAction
     public List<Task> findByStatus(Status status){
         return taskRepository.findByStatus(status);
     }
@@ -52,6 +54,7 @@ public class TaskService {
         taskRepository.deleteById(taskId);
     }
 
+    @TrackUserAction
     public Task getTaskByID(int id) {
         return  taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
     }
