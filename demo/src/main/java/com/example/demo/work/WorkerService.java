@@ -1,5 +1,6 @@
 package com.example.demo.work;
 
+import com.example.demo.aspect.HandleError;
 import com.example.demo.aspect.TrackUserAction;
 import com.example.demo.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class WorkerService {
 
 
     @TrackUserAction
+    @HandleError
     public Worker findById(int id) {
         return workerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Worker not found"));

@@ -1,5 +1,6 @@
 package com.example.demo.task;
 
+import com.example.demo.aspect.HandleError;
 import com.example.demo.aspect.TrackUserAction;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +56,7 @@ public class TaskService {
     }
 
     @TrackUserAction
+    @HandleError
     public Task getTaskByID(int id) {
         return  taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
     }
