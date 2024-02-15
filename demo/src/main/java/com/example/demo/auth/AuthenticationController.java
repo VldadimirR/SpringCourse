@@ -23,6 +23,15 @@ public class AuthenticationController {
         return new RedirectView("/login");
     }
 
+    @GetMapping("/login")
+    public String showLoginForm(){
+        return  "login";
+    }
+
+    @GetMapping("/logout")
+    public String logOutPage() {
+        return "logout";
+    }
 
 }
 

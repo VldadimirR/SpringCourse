@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -24,12 +25,19 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .authorizeHttpRequests((authorize) ->
                         authorize
-                                .requestMatchers("/api/v1/auth/register").permitAll()
+                                .requestMatchers("/api/v1/auth/register","/api/v1/auth/login" ).permitAll()
                                 .requestMatchers("/workers/**").hasAuthority("ROLE_ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .formLogin()
+                .loginPage("/api/v1/auth/login")
+                .loginProcessingUrl("/process_login")
                 .defaultSuccessUrl("/tasks")
+                .failureUrl("/api/v1/auth/login?error")
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/api/v1/auth/logout"))
+                .logoutSuccessUrl("/api/v1/auth/login")
                 .and()
                 .sessionManagement()
                 .and()
