@@ -16,16 +16,19 @@ public class TaskController {
 
     private final TaskService taskService;
 
+    private final MyTaskFactory myTaskFactory;
+
 
     @Autowired
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskService taskService, MyTaskFactory myTaskFactory) {
         this.taskService = taskService;
+        this.myTaskFactory = myTaskFactory;
     }
 
 
     @GetMapping()
     public ModelAndView getTasks(@RequestParam(name = "status", defaultValue = "ALL")
-                           Status status,
+                                 Status status,
                                  Model model){
 
         List<Task> tasks;
@@ -53,8 +56,12 @@ public class TaskController {
 
 
     @PostMapping("/addTasks")
-    public String addTask(@ModelAttribute Task task,
+    public String addTask(@ModelAttribute TaskDTO taskDTO,
                           RedirectAttributes redirectAttributes){
+
+        Type type = taskDTO.type();
+        TaskFactory taskFactory = myTaskFactory.getTaskFactory(type);
+        Task task = taskFactory.createTask(taskDTO.description(), taskDTO.type());
         taskService.addTask(task);
 
         redirectAttributes.addFlashAttribute("successMessage", "Task created successfully!");

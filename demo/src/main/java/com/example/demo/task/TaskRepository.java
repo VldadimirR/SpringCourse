@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Integer> {
-        List<Task> findByStatus(Status status);
+    List<Task> findByStatus(Status status);
 
-        @Query("SELECT t FROM Task t LEFT JOIN FETCH t.workers WHERE t.id = :id")
-        Task findByIdWithWorkers(@Param("id") int id);
+    @Query("SELECT t FROM Task t LEFT JOIN FETCH t.workers WHERE t.id = :id")
+    Task findByIdWithWorkers(@Param("id") int id);
 }

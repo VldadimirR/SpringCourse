@@ -33,6 +33,7 @@ public class UserActionLoggerAspect {
 
     @AfterReturning(pointcut = "trackUserAction()", returning = "result")
     public void logUserAction(JoinPoint joinPoint, Object result) {
+
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().getSimpleName();
         Object[] args = joinPoint.getArgs();

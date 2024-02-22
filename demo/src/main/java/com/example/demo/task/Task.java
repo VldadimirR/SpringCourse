@@ -2,6 +2,7 @@ package com.example.demo.task;
 
 import com.example.demo.work.Worker;
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.NonNull;
 
@@ -12,6 +13,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tasks")
 public class Task {
@@ -26,6 +31,9 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Enumerated(EnumType.STRING)
+    private Type type;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
@@ -33,35 +41,12 @@ public class Task {
     @OneToMany(mappedBy = "owner")
     private List<Worker> workers;
 
-    public Task() {
-    }
-
-    public List<Worker> getWorkers() {
-        return workers;
-    }
-
-    public void setWorkers(List<Worker> workers) {
-        this.workers = workers;
-    }
-
-    public Task(@NonNull String description, Status status) {
-        this.description = description;
-        this.status = status;
-    }
 
     public String getFormattedCreationDate() {
         LocalDateTime localDateTime = creationDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         return localDateTime.format(formatter);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @NonNull
@@ -71,22 +56,6 @@ public class Task {
 
     public void setDescription(@NonNull String description) {
         this.description = description;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 
     @Override

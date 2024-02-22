@@ -24,6 +24,10 @@
     <form th:action="@{/tasks/addTasks}" method="post">
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" required>
+        <select id="type" name="type">
+            <option value="REGULAR">Regular</option>
+            <option value="SPECIAL">Special</option>
+        </select>
         <input type="submit" value="Create ">
     </form>
 

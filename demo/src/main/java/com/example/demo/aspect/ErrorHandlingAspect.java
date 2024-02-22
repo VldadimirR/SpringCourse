@@ -11,6 +11,7 @@ public class ErrorHandlingAspect {
 
     @Around("@annotation(HandleError)")
     public Object handleErrors(ProceedingJoinPoint joinPoint) throws Throwable {
+
         try {
             return joinPoint.proceed();
         } catch (Exception e) {
