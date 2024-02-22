@@ -1,4 +1,6 @@
-package com.example.demo.task;
+package com.example.demo.task.factory;
+
+import com.example.demo.task.enumeration.Type;
 
 public class MyTaskFactory {
 

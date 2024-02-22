@@ -1,4 +1,8 @@
-package com.example.demo.task;
+package com.example.demo.task.factory;
+
+import com.example.demo.task.enumeration.Status;
+import com.example.demo.task.Task;
+import com.example.demo.task.enumeration.Type;
 
 import java.util.Date;
 

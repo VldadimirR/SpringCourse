@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import com.example.demo.task.MyTaskFactory;
+import com.example.demo.task.factory.MyTaskFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

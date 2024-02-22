@@ -1,5 +1,7 @@
 package com.example.demo.task;
 
+import com.example.demo.task.enumeration.Status;
+import com.example.demo.task.enumeration.Type;
 import com.example.demo.work.Worker;
 import jakarta.persistence.*;
 import lombok.*;

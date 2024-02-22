@@ -1,5 +1,9 @@
 package com.example.demo.task;
 
+import com.example.demo.task.enumeration.Status;
+import com.example.demo.task.enumeration.Type;
+import com.example.demo.task.factory.MyTaskFactory;
+import com.example.demo.task.factory.TaskFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +32,7 @@ public class TaskController {
 
     @GetMapping()
     public ModelAndView getTasks(@RequestParam(name = "status", defaultValue = "ALL")
-                                 Status status,
+                                     Status status,
                                  Model model){
 
         List<Task> tasks;
