@@ -47,7 +47,9 @@ public class TaskController {
 
     @GetMapping("/{id}")
     public String getTask(@PathVariable int id, Model model){
+
         Task task = taskService.getTaskByIDforWorkers(id);
+
         model.addAttribute("task", task);
         model.addAttribute("workers", task.getWorkers());
 
@@ -74,19 +76,23 @@ public class TaskController {
     public String changeStatus(@PathVariable int id,
                                @RequestParam Status newStatus,
                                RedirectAttributes redirectAttributes) {
+
         Optional<Task> updatedTask = taskService.changeStatus(id, newStatus);
 
         if (updatedTask.isPresent()) {
             redirectAttributes.addFlashAttribute("changeMessage", "task has been successfully changed!");
             return "redirect:/tasks";
         }
+
         return "redirect:/tasks";
     }
 
 
     @PutMapping("/{id}")
     public String updateTask(@PathVariable int id, Task task){
+
         taskService.updateTask(id, task);
+
         return "redirect:/task" + id;
     }
 
@@ -95,7 +101,9 @@ public class TaskController {
     @PostMapping("/delete/{id}")
     public String deleteTask(@PathVariable int id, RedirectAttributes redirectAttributes){
         taskService.deleteTask(id);
+
         redirectAttributes.addFlashAttribute("deleteMessage", "the task was successfully deleted!");
+
         return "redirect:/tasks";
     }
 

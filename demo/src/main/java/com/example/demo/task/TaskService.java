@@ -23,6 +23,7 @@ public class TaskService {
     @TrackUserAction
     public Task addTask(Task task){
         task.setStatus(Status.ACTIVE);
+
         return taskRepository.save(task);
     }
 
